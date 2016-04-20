@@ -35,3 +35,8 @@ cacheSolve <- function(x, ...) {
     x$setmatrix(mat_i)
     mat_i
 }
+
+##To execute
+##a <- makeCacheMatrix()
+## a$set(matrix(1:4,2,2)) or any square matrix
+##cacheSolve(a)
