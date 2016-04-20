@@ -12,9 +12,9 @@ mat_i <- NULL						## initialize mat_i as NULL; will hold value of matrix invers
 get<-function() x						##returns value of the matrix argument
 setmatrix<-function(solve) mat_i<<- solve		## assigns value of inv in parent environment
 getmatrix<-function() mat_i				## gets the value of inv where called
-list(set=set, get=get,
-   setmatrix=setmatrix,
-   getmatrix=getmatrix)
+list(set = set, get = get,
+   setmatrix = setmatrix,
+   getmatrix = getmatrix)
 }
 
 ## Write a short comment describing this function
@@ -23,7 +23,7 @@ list(set=set, get=get,
 ## If the inverse has already been calculated (and the matrix has not changed),
 ## then cacheSolve will retrieve the inverse from the cache
 
-cacheSolve <- function(x=matrix(), ...) {
+cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
  mat_i<-x$getmatrix()
     if(!is.null(mat_i)){
