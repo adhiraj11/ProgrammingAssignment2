@@ -3,15 +3,16 @@
 
 ## Write a short comment describing this function 
 ## This function creates a special "matrix" object that can cache its inverse
+
 makeCacheMatrix <- function(x = matrix()) {    ## define the argument with default mode of "matrix"
-mat_i <- NULL						## initialize mat_i as NULL; will hold value of matrix inverse	
+	  inv <- NULL						## initialize inv as NULL; will hold value of matrix inverse	
         set <- function(y) {
                 x <<- y					##Assigns a new value of matrix in the parent env
-                mat_i <<- NULL			 ## if there is a new matrix, reset mat_i to NULL
+                inv <<- NULL			 ## if there is a new matrix, reset mat_i to NULL
 }
 get<-function() x						##returns value of the matrix argument
-setmatrix<-function(solve) mat_i<<- solve		## assigns value of inv in parent environment
-getmatrix<-function() mat_i				## gets the value of inv where called
+setmatrix <-function(solve) inv<<- solve		## assigns value of inv in parent environment
+getmatrix <-function() inv				## gets the value of inv where called
 list(set = set, get = get,
    setmatrix = setmatrix,
    getmatrix = getmatrix)
@@ -25,15 +26,15 @@ list(set = set, get = get,
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
- mat_i<-x$getmatrix()
-    if(!is.null(mat_i)){
+ inv <- x$getmatrix()
+    if(!is.null(inv)){
       message("getting cached data")
-      return(mat_i)
+      return(inv)
     }
     matrix<-x$get()
-    mat_i<-solve(matrix, ...)
-    x$setmatrix(mat_i)
-    mat_i
+    inv <- solve(matrix, ...)
+    x$setmatrix(inv)
+    inv
 }
 
 ##To execute
